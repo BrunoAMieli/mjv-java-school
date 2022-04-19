@@ -6,10 +6,11 @@ public class FileTeste {
 
 	public static void main(String[] args) {
 
-		File file = new File("file.txt");
+		File file = new File("arquivo.txt");
 
 		System.out.println("Nome do arquivo :" + file.getName());
 		System.out.println("Caminho completo do arquivo: "+ file.getAbsolutePath());
+		System.out.println("Diretório criado: " + file.mkdir());
 		System.out.println("Arquivo existe: " + file.exists());
 
 		if (file.exists()) {
