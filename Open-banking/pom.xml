@@ -3,4 +3,11 @@
   <groupId>br.com.mjv</groupId>
   <artifactId>Open-banking</artifactId>
   <version>1.0</version>
+  <name>Projeto Open Banking - MJV</name>
+  
+  <properties>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source>
+</properties>
+
 </project>
