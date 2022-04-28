@@ -1,70 +1,49 @@
 package br.com.mjv.model;
 
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 public class Contrato implements Serializable {
 
 	private static final long serialVersionUID = 753389399289690738L;
 
-	private String protocolo;
+	private Long protocolo;
 	
-	private LocalDate data;
-	
-	private LocalTime hora;
-	
-	private TipoServico tipoServico;
+	private String servico;
 	
 	private double valor;
 	
-	private TipoNotificacao tipoNotificacao;
-
+	private LocalDateTime dataHora;
+				
+	private Cadastro cliente;
+	
 	public Contrato() {
 		super();
 	}
 
-	public Contrato(String protocolo, LocalDate data, LocalTime hora, TipoServico tipoServico, double valor,
-			TipoNotificacao tipoNotificacao) {
+	public Contrato(Long protocolo, String serico, double valor, LocalDateTime dataHora, Cadastro cliente) {
 		super();
 		this.protocolo = protocolo;
-		this.data = data;
-		this.hora = hora;
-		this.tipoServico = tipoServico;
+		this.servico = serico;
 		this.valor = valor;
-		this.tipoNotificacao = tipoNotificacao;
+		this.dataHora = dataHora;
+		this.cliente = cliente;
 	}
 
-	public String getProtocolo() {
+	public Long getProtocolo() {
 		return protocolo;
 	}
 
-	public void setProtocolo(String protocolo) {
+	public void setProtocolo(Long protocolo) {
 		this.protocolo = protocolo;
 	}
 
-	public LocalDate getData() {
-		return data;
+	public String getSerico() {
+		return servico;
 	}
 
-	public void setData(LocalDate data) {
-		this.data = data;
-	}
-
-	public LocalTime getHora() {
-		return hora;
-	}
-
-	public void setHora(LocalTime hora) {
-		this.hora = hora;
-	}
-
-	public TipoServico getTipoServico() {
-		return tipoServico;
-	}
-
-	public void setTipoServico(TipoServico tipoServico) {
-		this.tipoServico = tipoServico;
+	public void setServico(String servico) {
+		this.servico = servico;
 	}
 
 	public double getValor() {
@@ -75,12 +54,20 @@ public class Contrato implements Serializable {
 		this.valor = valor;
 	}
 
-	public TipoNotificacao getTipoNotificacao() {
-		return tipoNotificacao;
+	public LocalDateTime getDataHora() {
+		return dataHora;
 	}
 
-	public void setTipoNotificacao(TipoNotificacao tipoNotificacao) {
-		this.tipoNotificacao = tipoNotificacao;
+	public void setDataHora(LocalDateTime dataHora) {
+		this.dataHora = dataHora;
+	}
+
+	public Cadastro getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cadastro cliente) {
+		this.cliente = cliente;
 	}
 
 	public static long getSerialversionuid() {
@@ -89,8 +76,8 @@ public class Contrato implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Contrato [protocolo=" + protocolo + ", data=" + data + ", hora=" + hora + ", tipoServico=" + tipoServico
-				+ ", valor=" + valor + ", tipoNotificacao=" + tipoNotificacao + "]";
+		return "Contrato [protocolo=" + protocolo + ", serico=" + servico + ", valor=" + valor + ", dataHora=" + dataHora
+				+ ", cliente=" + cliente + "]";
 	}
-
+	
 }
