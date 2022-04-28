@@ -26,7 +26,7 @@ public class Teste {
 		cliente.setEndereco(endereco);
 		
 		endereco.setBairro("Santo Antonio");
-		endereco.setCep("27310657");
+		endereco.setCep("27310-657");
 		endereco.setCidade("São Paulo");
 		endereco.setEstado("SP");
 		endereco.setLogradouro("Rua das Marias");
