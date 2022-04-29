@@ -1,7 +1,19 @@
 package br.com.mjv.model;
 
 public enum Pais {
-	BRASIL,
-	ESTADOS_UNIDOS,
-	FRANCA
+	BRASIL ("BR"),
+	ESTADOS_UNIDOS ("US"),
+	FRANCA ("FR");
+	
+	private String sigla;
+
+	private Pais(String sigla) {
+		this.sigla = sigla;
+	}
+
+	public String getSigla() {
+		return sigla;
+	}
+
+	
 }
