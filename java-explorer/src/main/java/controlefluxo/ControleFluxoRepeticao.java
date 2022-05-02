@@ -5,10 +5,13 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class ControleFluxoRepeticao {
 	public static void main(String[] args) {
-		//exemploBreakContinue();
-		//exemploWhile();
-		//exemploDoWhile();
-		System.out.println(valorAleatorio());
+		System.out.println("Exemplo Break Continue: ");
+		exemploBreakContinue();
+		System.out.println("\nExemplo While (mesada): ");
+		exemploWhile();
+		System.out.println("\nExemplo Do While: ");
+		exemploDoWhile();
+		//System.out.println(valorAleatorio());
 	}
 	static void exemploDoWhile() {
 		System.out.println("Discando...");
@@ -43,13 +46,14 @@ public class ControleFluxoRepeticao {
 	}
 	
 	static double valorAleatorio() {
-		return ThreadLocalRandom.current().nextDouble(1800, 2200);
+		return ThreadLocalRandom.current().nextDouble(2, 8);
 	}
+	
 	static void exemploBreakContinue() {
 		for(int x = 1; x<=5; x++) {
 			if(x==3) {
 				//break;
-				continue;
+				//continue;
 			}
 			System.out.println(x);
 		}
