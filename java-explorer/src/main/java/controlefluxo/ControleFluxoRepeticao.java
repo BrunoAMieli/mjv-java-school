@@ -10,7 +10,7 @@ public class ControleFluxoRepeticao {
 		System.out.println("\nExemplo While (mesada): ");
 		exemploWhile();
 		System.out.println("\nExemplo Do While: ");
-		exemploDoWhile();
+		exemploDoWhile(); //Precisa executar ao menos uma vez, por isso que o telefone toca mesmo que ninguém atenda.
 		//System.out.println(valorAleatorio());
 	}
 	static void exemploDoWhile() {
