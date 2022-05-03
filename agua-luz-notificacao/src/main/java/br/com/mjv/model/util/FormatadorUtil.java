@@ -31,4 +31,11 @@ public class FormatadorUtil {
 		String output = today.format ( formatter );
 		System.out.println(output);
 	}
+    public static String formatarData(LocalDateTime dataHora) {
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        String dataFormatada = dataHora.format(formatter);
+
+        return dataFormatada;
+    }
 }

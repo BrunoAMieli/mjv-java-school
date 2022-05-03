@@ -18,7 +18,7 @@ public class ContratoTxtRepository {
 		Contrato contrato = new Contrato();
 		try
 		{
-		    byte[] bytes = Files.readAllBytes(Paths.get("/estudo/mjv-java-school/agua-luz-output","agua-luz-contratos.txt"));
+		    byte[] bytes = Files.readAllBytes(Paths.get("/Users/brunomieli/Documents/GitHub/MJV/mjv-java-school/agua-luz-output","agua-luz-contratos.txt"));
 		    String conteudo = new String (bytes);
 		    Cadastro cli = new Cadastro();
 		    cli.setCpf(conteudo.substring(0,11));

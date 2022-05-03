@@ -11,6 +11,7 @@ public class SistemaAguaLuzAtracao {
 		Contrato contrato = rep.pegarUnicoContrato();
 		
 		GeradorArquivo ga = new GeradorArquivo();
+		ga.csv(contrato);
 		ga.txt(contrato);
 		
 	}

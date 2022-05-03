@@ -55,7 +55,7 @@ public class GeradorArquivo {
 		
 	}
 	private void escrever(String conteudo, String nomeArquivo) {
-		File dir = new File("/estudo/mjv-java-school/agua-luz-output");
+		File dir = new File("/Users/brunomieli/Documents/GitHub/MJV/mjv-java-school/agua-luz-output");
 		dir.mkdirs();
 		
 		Path path = Paths.get(dir.getAbsolutePath(), nomeArquivo);
