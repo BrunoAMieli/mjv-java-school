@@ -20,8 +20,10 @@ public class TextoUtil {
 		return novoTexto;
 	}
 	public static String ajustar(String textoOrigianal, int tamanhoMaximo) {
-		String textoAjustado = completar(textoOrigianal, tamanhoMaximo);
-		textoAjustado = cortar(textoAjustado, tamanhoMaximo);
-		return textoAjustado;
+//		String textoAjustado = completar(textoOrigianal, tamanhoMaximo);
+//		textoAjustado = cortar(textoAjustado, tamanhoMaximo);
+		int max = Math.min(tamanhoMaximo, textoOrigianal.length());
+//		return textoAjustado;
+		return textoOrigianal.substring(0,max);
 	}
 }

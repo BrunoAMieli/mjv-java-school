@@ -16,6 +16,8 @@ public class GeradorArquivo {
 	public void csv(Contrato contrato) {
 		StringBuilder sb = new StringBuilder();
 		sb.append(contrato.getCliente().getCpf() + ";");
+        sb.append(contrato.getCliente().getRg()).append(";");
+        sb.append(contrato.getCliente().getNome()).append(";");
 		
 		System.out.println(sb.toString());
 		escrever(sb.toString(), "agua-luz-contratos.csv");
