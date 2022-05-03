@@ -11,7 +11,7 @@ import br.com.mjv.model.Contrato;
 import br.com.mjv.model.Endereco;
 import br.com.mjv.model.Pais;
 import br.com.mjv.model.Servico;
-import br.com.mjv.model.model.TipoNotificacao;
+import br.com.mjv.model.TipoNotificacao;
 
 public class ContratoTxtRepository {
 	public Contrato buscar() {

@@ -1,4 +1,4 @@
-package br.com.mjv.model.model;
+package br.com.mjv.model;
 
 public enum TipoNotificacao {
 	SMS,

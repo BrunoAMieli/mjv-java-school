@@ -3,8 +3,6 @@ package br.com.mjv.model;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-import br.com.mjv.model.model.TipoNotificacao;
-
 public class Contrato implements Serializable {
 
 	private static final long serialVersionUID = 753389399289690738L;
