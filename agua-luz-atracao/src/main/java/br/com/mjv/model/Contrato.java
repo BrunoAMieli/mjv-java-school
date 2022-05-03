@@ -3,13 +3,15 @@ package br.com.mjv.model;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+import br.com.mjv.model.model.TipoNotificacao;
+
 public class Contrato implements Serializable {
 
 	private static final long serialVersionUID = 753389399289690738L;
 
 	private Long protocolo;
 	
-	private String servico;
+	private Servico servico;
 	
 	private double valor;
 	
@@ -17,14 +19,16 @@ public class Contrato implements Serializable {
 				
 	private Cadastro cliente;
 	
+	private TipoNotificacao tipoNotificacao;
+	
 	public Contrato() {
 		super();
 	}
 
-	public Contrato(Long protocolo, String serico, double valor, LocalDateTime dataHora, Cadastro cliente) {
+	public Contrato(Long protocolo, Servico servico, double valor, LocalDateTime dataHora, Cadastro cliente) {
 		super();
 		this.protocolo = protocolo;
-		this.servico = serico;
+		this.servico = servico;
 		this.valor = valor;
 		this.dataHora = dataHora;
 		this.cliente = cliente;
@@ -38,11 +42,11 @@ public class Contrato implements Serializable {
 		this.protocolo = protocolo;
 	}
 
-	public String getSerico() {
+	public Servico getServico() {
 		return servico;
 	}
 
-	public void setServico(String servico) {
+	public void setServico(Servico servico) {
 		this.servico = servico;
 	}
 
@@ -76,8 +80,20 @@ public class Contrato implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Contrato [protocolo=" + protocolo + ", serico=" + servico + ", valor=" + valor + ", dataHora=" + dataHora
-				+ ", cliente=" + cliente + "]";
+		return "Contrato [protocolo=" + protocolo + ", servico=" + servico + ", valor=" + valor + ", dataHora="
+				+ dataHora + ", cliente=" + cliente + "]";
+	}
+
+	public void setServico(String string) {
+		
+	}
+
+	public TipoNotificacao getTipoNotificacao() {
+		return tipoNotificacao;
+	}
+
+	public void setTipoNotificacao(TipoNotificacao tipoNotificacao) {
+		this.tipoNotificacao = tipoNotificacao;
 	}
 	
 }

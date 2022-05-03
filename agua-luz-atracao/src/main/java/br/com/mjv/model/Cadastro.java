@@ -10,16 +10,24 @@ public class Cadastro implements Serializable{
 	
 	private String nome;
 	
+	private String rg;
+	
+	private String celular;
+	
 	private Endereco endereco;
+	
+	private Pais pais;
 
 	public Cadastro() {
 		super();
 	}
 
-	public Cadastro(String cpf, String nome, Endereco endereco) {
+	public Cadastro(String cpf, String nome, String rg, String celular, Endereco endereco) {
 		super();
 		this.cpf = cpf;
 		this.nome = nome;
+		this.rg = rg;
+		this.celular = celular;
 		this.endereco = endereco;
 	}
 
@@ -54,6 +62,30 @@ public class Cadastro implements Serializable{
 	@Override
 	public String toString() {
 		return "Cadastro [cpf=" + cpf + ", nome=" + nome + ", endereco=" + endereco + "]";
+	}
+
+	public String getRg() {
+		return rg;
+	}
+
+	public void setRg(String rg) {
+		this.rg = rg;
+	}
+
+	public String getCelular() {
+		return celular;
+	}
+
+	public void setCelular(String celular) {
+		this.celular = celular;
+	}
+
+	public Pais getPais() {
+		return pais;
+	}
+
+	public void setPais(Pais pais) {
+		this.pais = pais;
 	}
 	
 }

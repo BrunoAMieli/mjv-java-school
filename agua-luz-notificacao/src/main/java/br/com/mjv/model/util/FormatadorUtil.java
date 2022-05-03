@@ -1,6 +1,11 @@
 package br.com.mjv.model.util;
 
 import java.text.Normalizer;
+import java.text.NumberFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+import java.util.Locale;
 
 public class FormatadorUtil {
 	public static String formatarCpf(String cpf) {
@@ -11,8 +16,19 @@ public class FormatadorUtil {
 		String cpfFormatador=String.format("%s.%s.%s-%s", part1, part2, part3, part4);
 		return cpfFormatador;
 	}
+	
 	public static String removerAcentos(String palavra) {
 		return Normalizer.normalize(palavra, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "");
 	}
 	
+	public static void main(String[] args) {
+		NumberFormat nf = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
+        String val = nf.format(11234.56);
+		System.out.println(val);
+		
+		LocalDateTime today = LocalDateTime.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT).withLocale ( new Locale("pt", "BR") );
+		String output = today.format ( formatter );
+		System.out.println(output);
+	}
 }

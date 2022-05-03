@@ -19,7 +19,7 @@ public class GeradorMensagem {
 		sb.append(String.format("Senhor(a) %s cpf de número %s, ", cliente.getNome(), cpfFormatador));
 		sb.append(String.format("Informamos que conforme contrato com protocolo de número %d ", contrato.getProtocolo()));
 		sb.append(String.format("está agendado para a data\\hora %sh", formatarData));
-		sb.append(String.format(" a instalação do serviço de %s com taxa de valor R$ %s em sua residência localizada no endereço abaixo: ", contrato.getSerico(), contrato.getValor()));
+		sb.append(String.format(" a instalação do serviço de %s com taxa de valor R$ %s em sua residência localizada no endereço abaixo: ", contrato.getServico(), contrato.getValor()));
 		sb.append(String.format("\nLogradouro: %s, %s\n" + 
 								"Complemento: %s\n" + 
 								"Bairro: %s\n" + 
