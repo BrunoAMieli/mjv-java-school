@@ -9,10 +9,40 @@ import br.com.mjv.model.Contrato;
 import br.com.mjv.model.Endereco;
 import br.com.mjv.model.Pais;
 import br.com.mjv.model.Servico;
+import br.com.mjv.model.TipoNotificacao;
 
 public class ContratoRepository {
 	//banco de dados fake
 	private List<Contrato> contratos = new ArrayList<Contrato>();
+	
+	public Contrato pegarUnicoContrato() {
+		Contrato contrato = new Contrato();
+		contrato.setDataHora(LocalDateTime.of(2022, 5, 7, 16, 0));
+		contrato.setNumeroProtocolo(2022025687L);
+		
+		contrato.setServico(Servico.AGUA);
+		contrato.setTipoNotificacao(TipoNotificacao.WTS);
+		Cadastro cliente = new Cadastro();
+		contrato.setCliente(cliente);
+		
+		cliente.setCpf("003.848.650-65");
+		cliente.setNome("Raimundo Nonato Loureiro Castelo Branco");
+		cliente.setRg("33765-5");
+		cliente.setPais(Pais.BRASIL);
+		cliente.setCelular("(11) 99768-1515");
+		
+		Endereco endereco = new Endereco();
+		cliente.setEndereco(endereco);
+		
+		endereco.setBairro("Santo Antonio");
+		endereco.setCep("27.310-657");
+		endereco.setCidade("São Paulo");
+		endereco.setEstado("SP");
+		endereco.setLogradouro("Rua das Marias");
+		endereco.setNumero("37");
+		endereco.setComplemento("Bloco C");
+		return contrato;
+	}
 	
 	public List<Contrato> listar() {
 		Contrato contrato = new Contrato();

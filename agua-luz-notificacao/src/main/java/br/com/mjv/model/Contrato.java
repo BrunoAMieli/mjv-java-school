@@ -13,6 +13,8 @@ public class Contrato {
 	
 	private Cadastro cliente;
 	
+	private TipoNotificacao tipoNotificacao;
+	
 	public Long getNumeroProtocolo() {
 		return numeroProtocolo;
 	}
@@ -48,6 +50,14 @@ public class Contrato {
 	
 	public void setCliente(Cadastro cliente) {
 		this.cliente = cliente;
+	}
+
+	public TipoNotificacao getTipoNotificacao() {
+		return tipoNotificacao;
+	}
+
+	public void setTipoNotificacao(TipoNotificacao tipoNotificacao) {
+		this.tipoNotificacao = tipoNotificacao;
 	}
 	
 }

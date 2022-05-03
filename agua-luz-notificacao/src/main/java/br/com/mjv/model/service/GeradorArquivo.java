@@ -6,38 +6,52 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.List;
 
 import br.com.mjv.model.Cadastro;
 import br.com.mjv.model.Contrato;
+import br.com.mjv.model.Endereco;
+import br.com.mjv.model.util.TextoUtil;
 
 public class GeradorArquivo {
-	public void csv(List<Contrato> contratos) {
+	public void csv(Contrato contrato) {
 		StringBuilder sb = new StringBuilder();
+		sb.append(contrato.getCliente().getCpf() + ";");
 		
-		for(Contrato c : contratos) {
-			Cadastro cad = c.getCliente();
-			sb.append(cad.getCpf() + ";");
-			sb.append(cad.getRg() + ";");
-			sb.append(cad.getNome() + ";");
-		}
 		System.out.println(sb.toString());
-		
 		escrever(sb.toString(), "agua-luz-contratos.csv");
 		
 	}
 
-	public void txt(List<Contrato> contratos) {
+	public void txt(Contrato contrato) {
 		StringBuilder sb = new StringBuilder();
 		
-		for(Contrato c : contratos) {
-			Cadastro cad = c.getCliente();
-			sb.append(cad.getCpf());//remover os caracteres especiais
-			sb.append(cad.getRg());// incluir espaços em branco ate 10 e alinhar a equerda
-			sb.append(cad.getNome());//cortar o nome para no máximo 30c e colocar maiusculo.
-		}
-		System.out.println(sb.toString());
-		escrever(sb.toString(), "agua-luz-contratos.txt");
+		Cadastro cli = contrato.getCliente();
+		Endereco end = cli.getEndereco();
+		
+		
+		sb.append(TextoUtil.removerCaracteresEspeciais(cli.getCpf()));
+		sb.append(TextoUtil.ajustar(cli.getRg(),10));
+		sb.append(TextoUtil.ajustar(cli.getNome(), 30) );
+		sb.append(TextoUtil.removerCaracteresEspeciais(cli.getCelular()));
+		sb.append(TextoUtil.ajustar(end.getLogradouro(), 20) );
+		sb.append(TextoUtil.completarZeroEsquerda(Integer.valueOf(end.getNumero()), 6) );
+		sb.append(TextoUtil.ajustar(end.getComplemento(), 10) );
+		sb.append(TextoUtil.ajustar(end.getBairro(), 15) );
+		sb.append(TextoUtil.ajustar(end.getCidade(), 30) );
+		sb.append(TextoUtil.ajustar(end.getEstado(), 2) );
+		String cep = TextoUtil.removerCaracteresEspeciais(end.getCep());
+		sb.append(TextoUtil.ajustar( cep.replaceAll("\\D", ""), 8) );
+		sb.append(cli.getPais().getSigla() );
+		sb.append(TextoUtil.completarZeroEsquerda(contrato.getNumeroProtocolo(), 10) );
+		sb.append(TextoUtil.removerCaracteresEspeciais(contrato.getDataHora().toString()));
+		sb.append(contrato.getServico().getSigla() );
+		String valor = TextoUtil.removerCaracteresEspeciais(contrato.getValor().toString());
+		valor = TextoUtil.completarZeroEsquerda(Long.valueOf(valor), 8);
+		sb.append(valor );
+		
+		sb.append(contrato.getTipoNotificacao().name() );
+		
+		escrever(sb.toString().toUpperCase(), "agua-luz-contratos.txt");
 		
 	}
 	private void escrever(String conteudo, String nomeArquivo) {

@@ -10,6 +10,8 @@ public class Cadastro {
 	
 	private Endereco endereco;
 	
+	private String celular;
+	
 	private Pais pais;
 	
 	private Contrato contrato;
@@ -81,6 +83,14 @@ public class Cadastro {
 	public String toString() {
 		return "Cadastro [nome=" + nome + ", cpf=" + cpf + ", rg=" + rg + ", endereco=" + endereco + ", pais=" + pais
 				+ ", contrato=" + contrato + "]";
+	}
+
+	public String getCelular() {
+		return celular;
+	}
+
+	public void setCelular(String celular) {
+		this.celular = celular;
 	}
 
 }
