@@ -15,9 +15,26 @@ import br.com.mjv.model.util.TextoUtil;
 public class GeradorArquivo {
 	public void csv(Contrato contrato) {
 		StringBuilder sb = new StringBuilder();
-		sb.append(contrato.getCliente().getCpf() + ";");
-        sb.append(contrato.getCliente().getRg()).append(";");
-        sb.append(contrato.getCliente().getNome()).append(";");
+		Cadastro cli = contrato.getCliente();
+		Endereco end = cli.getEndereco();
+
+		sb.append(cli.getCpf()).append(";");
+        sb.append(cli.getRg()).append(";");
+        sb.append(cli.getNome()).append(";");
+        sb.append(cli.getCelular()).append(";");
+        sb.append(end.getLogradouro()).append(";");
+        sb.append(end.getNumero()).append(";");
+        sb.append(end.getComplemento()).append(";");
+        sb.append(end.getBairro()).append(";");
+        sb.append(end.getCidade()).append(";");
+        sb.append(end.getEstado()).append(";");
+        sb.append(end.getCep()).append(";");
+        sb.append(cli.getPais()).append(";");
+        sb.append(contrato.getNumeroProtocolo()).append(";");
+        sb.append(contrato.getDataHora()).append(";");
+        sb.append(contrato.getServico().getSigla()).append(";");
+        sb.append(contrato.getValor()).append(";");
+        sb.append(contrato.getTipoNotificacao()).append(";");
 		
 		System.out.println(sb.toString());
 		escrever(sb.toString(), "agua-luz-contratos.csv");
@@ -26,10 +43,8 @@ public class GeradorArquivo {
 
 	public void txt(Contrato contrato) {
 		StringBuilder sb = new StringBuilder();
-		
 		Cadastro cli = contrato.getCliente();
 		Endereco end = cli.getEndereco();
-		
 		
 		sb.append(TextoUtil.removerCaracteresEspeciais(cli.getCpf()));
 		sb.append(TextoUtil.ajustar(cli.getRg(),10));
@@ -42,16 +57,15 @@ public class GeradorArquivo {
 		sb.append(TextoUtil.ajustar(end.getCidade(), 30) );
 		sb.append(TextoUtil.ajustar(end.getEstado(), 2) );
 		String cep = TextoUtil.removerCaracteresEspeciais(end.getCep());
-		sb.append(TextoUtil.ajustar( cep.replaceAll("\\D", ""), 8) );
+		sb.append(TextoUtil.ajustar(cep.replaceAll("\\D", ""), 8) );
 		sb.append(cli.getPais().getSigla() );
 		sb.append(TextoUtil.completarZeroEsquerda(contrato.getNumeroProtocolo(), 10) );
 		sb.append(TextoUtil.removerCaracteresEspeciais(contrato.getDataHora().toString()));
 		sb.append(contrato.getServico().getSigla() );
 		String valor = TextoUtil.removerCaracteresEspeciais(contrato.getValor().toString());
 		valor = TextoUtil.completarZeroEsquerda(Long.valueOf(valor), 8);
-		sb.append(valor );
-		
-		sb.append(contrato.getTipoNotificacao().name() );
+		sb.append(valor);
+		sb.append(contrato.getTipoNotificacao().name());
 		
 		escrever(sb.toString().toUpperCase(), "agua-luz-contratos.txt");
 		
@@ -68,5 +82,4 @@ public class GeradorArquivo {
 			e.printStackTrace();
 		}
 	}
-
 }
