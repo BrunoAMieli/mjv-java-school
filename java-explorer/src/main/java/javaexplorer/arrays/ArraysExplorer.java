@@ -1,7 +1,9 @@
 package javaexplorer.arrays;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ArraysExplorer {
 
@@ -34,6 +36,26 @@ public class ArraysExplorer {
 			System.out.println(aluno);
 		}
 		
-		System.out.println("\nO ArrayList contém " + alunos2.size() + " elementos.");
+		System.out.println("\nO ArrayList contém " + alunos2.size() + " elementos.\n");
+		
+		Set <String> alunos3 = new HashSet<String>();
+		
+		System.out.println(alunos3.add("GLEYSON"));
+		alunos3.add("ARAMIS");
+		
+		System.out.println(alunos3.size());
+		                
+        for(String aluno:alunos) {
+        	System.out.println(aluno);
+        }
+        System.out.println(alunos3.size());
+        
+        alunos3.add("MARCOS");
+        alunos3.add( "JULIA");
+        System.out.println(alunos3.add("GLEYSON"));
+        
+        for(String aluno :alunos) {
+        	System.out.println(aluno);
+        }
 	}
 }
