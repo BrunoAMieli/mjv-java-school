@@ -1,4 +1,4 @@
-package javaexplorer.fundamentos;
+package fundamentos;
 
 public class ClassesWrappersExplorer {
 

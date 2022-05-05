@@ -1,4 +1,4 @@
-package javaexplorer.arrays;
+package arrays;
 
 import java.util.ArrayList;
 import java.util.HashSet;
